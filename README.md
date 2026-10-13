@@ -21,7 +21,7 @@ The settings window, the command help and the plugin messages follow your **game
 - **Replace the original message**: the translation takes the place of the original line in the chat. Disable this option to get the translation on a separate line below the original instead.
 - **See the original**: click the `[EN→FR]` tag of a translated message to show the original text in a tooltip above the mouse. (Dalamud cannot detect hovering over native chat lines, so this is click-based. The last 256 translated messages keep their original.)
 - **Per-channel control**: Say, Shout, Yell, Party, Cross-world party, Alliance, Free Company, incoming tells, Linkshells and Cross-world Linkshells. Say is disabled by default.
-- **Translate your own messages**: `/htranslate` opens a small window where you write a message, choose the language to translate it to, and copy the result to the clipboard to paste it in the chat. The source language is detected automatically and nothing is sent to the game automatically.
+- **Translate your own messages**: `/htranslator` opens a small window where you write a message, choose the language to translate it to, and copy the result to the clipboard to paste it in the chat. The source language is detected automatically and nothing is sent to the game automatically.
 - **Ignored languages**: e.g. `en` if you already understand English.
 - **Two services**: Google Translate (free, no key) or DeepL Free (requires a free API key).
 - Messages are cached to avoid translating the same text twice.
@@ -49,9 +49,9 @@ The text of the messages in the channels you enabled is sent to **Google Transla
 
 ## Usage
 
-- `/frtrad`: open the settings window.
-- `/frtrad on` / `/frtrad off`: enable / disable the translation.
-- `/htranslate`: open the window to translate your own messages (then paste the copied result into the chat yourself).
+- `/htranslate`: open the settings window.
+- `/htranslate on` / `/htranslate off`: enable / disable the translation.
+- `/htranslator`: open the window to translate your own messages (then paste the copied result into the chat yourself).
 
 Note: for incoming tells, a message that has to be translated is held and re-displayed, so the usual tell sound or flash may not trigger for translated tells. Uncheck "Incoming tells" or disable "Replace the original message" if this bothers you.
 
@@ -70,14 +70,14 @@ The DLL is generated in `bin\Release\` (usually in a `net10.0-windows` subfolder
 ## Install as a dev plugin
 
 1. In game, type `/xlsettings` and open the **Experimental** tab.
-2. In **Dev Plugin Locations**, add the full path of `FrenchChatTranslator.dll` (the `FrenchChatTranslator.json` manifest must be next to it), then **Save and Close**.
+2. In **Dev Plugin Locations**, add the full path of `ChatTranslator.dll` (the `ChatTranslator.json` manifest must be next to it), then **Save and Close**.
 3. Type `/xlplugins`, open **Dev Tools → Installed Dev Plugins** and enable **Chat Translator**.
 
 After rebuilding, disable and re-enable the plugin in **Installed Dev Plugins** to load the new DLL.
 
 ## Versioning and changelog
 
-The version number is defined in one place: `<Version>` in `FrenchChatTranslator.csproj` (currently `1.0.0.0`). It is shown in the settings window. To release a new version, change that number, add a section to [`CHANGELOG.md`](CHANGELOG.md) and rebuild. The project follows [Semantic Versioning](https://semver.org/).
+The version number is defined in one place: `<Version>` in `ChatTranslator.csproj` (currently `1.0.1.0`). It is shown in the settings window. To release a new version, change that number, add a section to [`CHANGELOG.md`](CHANGELOG.md) and rebuild. The project follows [Semantic Versioning](https://semver.org/).
 
 ## License
 

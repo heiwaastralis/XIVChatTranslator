@@ -1,0 +1,8 @@
+{
+  "Author": "Heiwa",
+  "Name": "Chat Translator",
+  "InternalName": "ChatTranslator",
+  "Punchline": "Automatically translates chat messages into the language of your choice.",
+  "Description": "Detects the language of every chat message and replaces it with a translation in the language you choose (French, English, German, Japanese and more). Click the language tag to see the original message. The settings window follows your game language (English, French, German or Japanese). Message text is sent to Google Translate or DeepL for translation. Use /htranslate to open the settings.",
+  "Tags": ["chat", "translation", "translator", "language"]
+}

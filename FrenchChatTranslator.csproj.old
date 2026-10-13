@@ -1,0 +1,12 @@
+<Project Sdk="Dalamud.NET.Sdk/15.0.0">
+  <PropertyGroup>
+    <Version>1.0.1.0</Version>
+    <Description>Automatically translates chat messages into the language of your choice.</Description>
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <!-- Icône du plugin : Dalamud la lit dans images/icon.png à côté de la DLL. -->
+  <ItemGroup>
+    <Content Include="images\icon.png" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+</Project>

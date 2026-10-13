@@ -7,7 +7,7 @@ using Dalamud.Game.Text;
 using Dalamud.Interface.Components;
 using Dalamud.Interface.Windowing;
 
-namespace FrenchChatTranslator;
+namespace ChatTranslator;
 
 public sealed class ConfigWindow : Window
 {

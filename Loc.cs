@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Dalamud.Game;
 
-namespace FrenchChatTranslator;
+namespace ChatTranslator;
 
 /// <summary>
 /// Traductions de l'interface du plugin. Anglais par défaut : toute clé manquante
@@ -78,7 +78,7 @@ public static class Loc
             ["tw_translating"] = "Translating...",
             ["tw_error"] = "Translation failed. Check your connection or your DeepL key.",
             ["tw_clear"] = "Clear",
-            ["htranslate_help"] = "/htranslate: open the window to translate your own messages.",
+            ["htranslator_help"] = "/htranslator: open the window to translate your own messages.",
             ["deepl_key"] = "DeepL key",
             ["ignored"] = "Ignored languages (e.g. en,de)",
             ["min_length"] = "Minimum length",
@@ -96,7 +96,7 @@ public static class Loc
             ["popup_title"] = "Original message:",
             ["msg_enabled"] = "[Chat Translator] Translation enabled.",
             ["msg_disabled"] = "[Chat Translator] Translation disabled.",
-            ["command_help"] = "/frtrad: open settings. /frtrad on|off: enable / disable translation.",
+            ["command_help"] = "/htranslate: open settings. /htranslate on|off: enable / disable translation.",
             ["lang_fr"] = "French",
             ["lang_en"] = "English",
             ["lang_de"] = "German",
@@ -136,7 +136,7 @@ public static class Loc
             ["tw_translating"] = "Traduction en cours...",
             ["tw_error"] = "Échec de la traduction. Vérifiez votre connexion ou votre clé DeepL.",
             ["tw_clear"] = "Effacer",
-            ["htranslate_help"] = "/htranslate : ouvre la fenêtre pour traduire vos propres messages.",
+            ["htranslator_help"] = "/htranslator : ouvre la fenêtre pour traduire vos propres messages.",
             ["deepl_key"] = "Clé DeepL",
             ["ignored"] = "Langues ignorées (ex: en,de)",
             ["min_length"] = "Longueur minimale",
@@ -154,7 +154,7 @@ public static class Loc
             ["popup_title"] = "Message d'origine :",
             ["msg_enabled"] = "[Chat Translator] Traduction activée.",
             ["msg_disabled"] = "[Chat Translator] Traduction désactivée.",
-            ["command_help"] = "/frtrad : ouvre la config. /frtrad on|off : active / désactive la traduction.",
+            ["command_help"] = "/htranslate : ouvre la config. /htranslate on|off : active / désactive la traduction.",
             ["lang_fr"] = "Français",
             ["lang_en"] = "Anglais",
             ["lang_de"] = "Allemand",
@@ -194,7 +194,7 @@ public static class Loc
             ["tw_translating"] = "Wird übersetzt ...",
             ["tw_error"] = "Übersetzung fehlgeschlagen. Prüfe deine Verbindung oder deinen DeepL-Schlüssel.",
             ["tw_clear"] = "Leeren",
-            ["htranslate_help"] = "/htranslate: Öffnet das Fenster, um eigene Nachrichten zu übersetzen.",
+            ["htranslator_help"] = "/htranslator: Öffnet das Fenster, um eigene Nachrichten zu übersetzen.",
             ["deepl_key"] = "DeepL-Schlüssel",
             ["ignored"] = "Ignorierte Sprachen (z. B. en,de)",
             ["min_length"] = "Mindestlänge",
@@ -212,7 +212,7 @@ public static class Loc
             ["popup_title"] = "Originalnachricht:",
             ["msg_enabled"] = "[Chat Translator] Übersetzung aktiviert.",
             ["msg_disabled"] = "[Chat Translator] Übersetzung deaktiviert.",
-            ["command_help"] = "/frtrad: Einstellungen öffnen. /frtrad on|off: Übersetzung ein-/ausschalten.",
+            ["command_help"] = "/htranslate: Einstellungen öffnen. /htranslate on|off: Übersetzung ein-/ausschalten.",
             ["lang_fr"] = "Französisch",
             ["lang_en"] = "Englisch",
             ["lang_de"] = "Deutsch",
@@ -252,7 +252,7 @@ public static class Loc
             ["tw_translating"] = "翻訳中...",
             ["tw_error"] = "翻訳に失敗しました。接続またはDeepLキーを確認してください。",
             ["tw_clear"] = "クリア",
-            ["htranslate_help"] = "/htranslate: 自分のメッセージを翻訳するウィンドウを開きます。",
+            ["htranslator_help"] = "/htranslator: 自分のメッセージを翻訳するウィンドウを開きます。",
             ["deepl_key"] = "DeepLキー",
             ["ignored"] = "無視する言語（例: en,de）",
             ["min_length"] = "最小文字数",
@@ -270,7 +270,7 @@ public static class Loc
             ["popup_title"] = "元のメッセージ:",
             ["msg_enabled"] = "[Chat Translator] 翻訳を有効にしました。",
             ["msg_disabled"] = "[Chat Translator] 翻訳を無効にしました。",
-            ["command_help"] = "/frtrad: 設定を開く。/frtrad on|off: 翻訳の有効/無効を切り替え。",
+            ["command_help"] = "/htranslate: 設定を開く。/htranslate on|off: 翻訳の有効/無効を切り替え。",
             ["lang_fr"] = "フランス語",
             ["lang_en"] = "英語",
             ["lang_de"] = "ドイツ語",

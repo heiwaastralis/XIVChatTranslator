@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Dalamud.Configuration;
 using Dalamud.Game.Text;
 
-namespace FrenchChatTranslator;
+namespace ChatTranslator;
 
 public enum Provider
 {
@@ -23,7 +23,7 @@ public sealed class Configuration : IPluginConfiguration
     /// <summary>Langue de l'interface du plugin : "auto" (langue du jeu), "en", "fr", "de" ou "ja".</summary>
     public string UiLanguage { get; set; } = "auto";
 
-    /// <summary>Langue vers laquelle la fenêtre /htranslate traduit ses propres messages (en par défaut).</summary>
+    /// <summary>Langue vers laquelle la fenêtre /htranslator traduit ses propres messages (en par défaut).</summary>
     public string OutgoingLanguage { get; set; } = "en";
 
     /// <summary>Code langue cible (fr, en, de, ja...).</summary>

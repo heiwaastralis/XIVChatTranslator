@@ -3,7 +3,7 @@
 All notable changes to this plugin are documented in this file.
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project uses [Semantic Versioning](https://semver.org/).
 
-To release a new version: change `<Version>` in `FrenchChatTranslator.csproj`, add a new section at the top of this file, then rebuild.
+To release a new version: change `<Version>` in `ChatTranslator.csproj`, add a new section at the top of this file, then rebuild.
 
 ## [Unreleased]
 
@@ -12,13 +12,15 @@ To release a new version: change `<Version>` in `FrenchChatTranslator.csproj`, a
 ### Added
 - Info icon (circled "i") next to "Service" in the settings. Hovering it compares Google (free, less accurate) and DeepL (more accurate, free up to 500,000 characters per month); clicking it opens a guide on creating a DeepL API key.
 - Clickable link to the DeepL API key guide under the DeepL key field.
-- `/htranslate` command: a window to translate your own messages. Choose the target language, the source language is detected automatically, and a button copies the translation to the clipboard. The window is localized like the rest of the plugin and nothing is sent to the game automatically.
+- `/htranslator` command: a window to translate your own messages. Choose the target language, the source language is detected automatically, and a button copies the translation to the clipboard. The window is localized like the rest of the plugin and nothing is sent to the game automatically.
 - Plugin icon (`images/icon.png`), shown in the Dalamud plugin installer.
 - Custom plugin repository (`repo.json`) so the plugin can be installed from the Dalamud installer.
 - Support for DeepL paid (Pro) API keys in addition to free keys. The right DeepL server is chosen automatically from the key.
 
 ### Changed
 - The "DeepL Free" service is now simply called "DeepL".
+- The plugin's internal name is now `ChatTranslator` (was `FrenchChatTranslator`). The settings are reset on first load.
+- Commands renamed: `/frtrad` is now `/htranslate` (settings, `/htranslate on|off`), and the former `/htranslate` translation window is now `/htranslator`.
 
 ## [1.0.0] - 2026-10-13
 

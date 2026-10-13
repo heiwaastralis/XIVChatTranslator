@@ -18,12 +18,12 @@ using Dalamud.IoC;
 using Dalamud.Plugin;
 using Dalamud.Plugin.Services;
 
-namespace FrenchChatTranslator;
+namespace ChatTranslator;
 
 public sealed class Plugin : IDalamudPlugin
 {
-    private const string CommandName = "/frtrad";
-    private const string TranslateCommandName = "/htranslate";
+    private const string CommandName = "/htranslate";
+    private const string TranslateCommandName = "/htranslator";
 
     [PluginService] internal static IDalamudPluginInterface PluginInterface { get; private set; } = null!;
     [PluginService] internal static ICommandManager CommandManager { get; private set; } = null!;
@@ -42,7 +42,7 @@ public sealed class Plugin : IDalamudPlugin
 
     private readonly Configuration config;
     private readonly Translator translator = new();
-    private readonly WindowSystem windows = new("FrenchChatTranslator");
+    private readonly WindowSystem windows = new("ChatTranslator");
     private readonly ConfigWindow configWindow;
     private readonly TranslatorWindow translatorWindow;
     private readonly CancellationTokenSource cts = new();
@@ -155,7 +155,7 @@ public sealed class Plugin : IDalamudPlugin
         CommandManager.RemoveHandler(TranslateCommandName);
         CommandManager.AddHandler(TranslateCommandName, new CommandInfo((_, _) => this.translatorWindow.Toggle())
         {
-            HelpMessage = Loc.T("htranslate_help"),
+            HelpMessage = Loc.T("htranslator_help"),
         });
     }
 

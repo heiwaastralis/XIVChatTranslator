@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 using Dalamud.Bindings.ImGui;
 using Dalamud.Interface.Windowing;
 
-namespace FrenchChatTranslator;
+namespace ChatTranslator;
 
 /// <summary>
-/// Fenêtre /htranslate : on écrit son message, il est traduit (langue d'origine détectée
+/// Fenêtre /htranslator : on écrit son message, il est traduit (langue d'origine détectée
 /// automatiquement) et on copie le résultat dans le presse-papiers pour le coller dans le chat.
 /// Rien n'est envoyé automatiquement au jeu.
 /// </summary>
@@ -37,7 +37,7 @@ public sealed class TranslatorWindow : Window
     private int version;
 
     public TranslatorWindow(Configuration config, Translator translator, CancellationToken ct)
-        : base("Translate my message##htranslate")
+        : base("Translate my message##htranslator")
     {
         this.config = config;
         this.translator = translator;
@@ -55,7 +55,7 @@ public sealed class TranslatorWindow : Window
     // Le titre suit la langue de l'interface.
     public override void PreDraw()
     {
-        this.WindowName = Loc.T("tw_title") + "##htranslate";
+        this.WindowName = Loc.T("tw_title") + "##htranslator";
     }
 
     public override void Draw()
@@ -193,7 +193,7 @@ public sealed class TranslatorWindow : Window
             }
             catch (Exception ex)
             {
-                Plugin.Log.Warning(ex, "Échec de traduction (/htranslate)");
+                Plugin.Log.Warning(ex, "Échec de traduction (/htranslator)");
             }
 
             lock (this.stateLock)

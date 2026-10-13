@@ -6,7 +6,7 @@ using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace FrenchChatTranslator;
+namespace ChatTranslator;
 
 public sealed record TranslationResult(string SourceLang, string Text);
 
@@ -48,7 +48,7 @@ public sealed class Translator : IDisposable
     public Task<TranslationResult?> TranslateAsync(string text, Configuration cfg, CancellationToken ct)
         => this.TranslateAsync(text, cfg.TargetLanguage, cfg, ct);
 
-    /// <summary>Traduit vers une langue cible explicite (ex. fenêtre /htranslate).</summary>
+    /// <summary>Traduit vers une langue cible explicite (ex. fenêtre /htranslator).</summary>
     public async Task<TranslationResult?> TranslateAsync(string text, string target, Configuration cfg, CancellationToken ct)
     {
         var key = $"{cfg.Provider}|{target}|{text}";
