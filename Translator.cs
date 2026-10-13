@@ -44,9 +44,14 @@ public sealed class Translator : IDisposable
         _ => code.ToUpperInvariant(),
     };
 
-    public async Task<TranslationResult?> TranslateAsync(string text, Configuration cfg, CancellationToken ct)
+    /// <summary>Traduit vers la langue de lecture configurée (messages reçus).</summary>
+    public Task<TranslationResult?> TranslateAsync(string text, Configuration cfg, CancellationToken ct)
+        => this.TranslateAsync(text, cfg.TargetLanguage, cfg, ct);
+
+    /// <summary>Traduit vers une langue cible explicite (ex. fenêtre /htranslate).</summary>
+    public async Task<TranslationResult?> TranslateAsync(string text, string target, Configuration cfg, CancellationToken ct)
     {
-        var key = $"{cfg.Provider}|{cfg.TargetLanguage}|{text}";
+        var key = $"{cfg.Provider}|{target}|{text}";
         lock (this.cacheLock)
         {
             if (this.cache.TryGetValue(key, out var hit))
@@ -57,8 +62,8 @@ public sealed class Translator : IDisposable
         try
         {
             var result = cfg.Provider == Provider.DeepLFree
-                ? await this.DeepLAsync(text, cfg, ct)
-                : await this.GoogleAsync(text, cfg, ct);
+                ? await this.DeepLAsync(text, target, cfg, ct)
+                : await this.GoogleAsync(text, target, ct);
 
             if (result != null)
             {
@@ -80,10 +85,10 @@ public sealed class Translator : IDisposable
     }
 
     // Endpoint public non officiel de Google Translate (sl=auto => détection automatique).
-    private async Task<TranslationResult?> GoogleAsync(string text, Configuration cfg, CancellationToken ct)
+    private async Task<TranslationResult?> GoogleAsync(string text, string target, CancellationToken ct)
     {
         var url = "https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&dt=t&tl="
-                  + Uri.EscapeDataString(cfg.TargetLanguage)
+                  + Uri.EscapeDataString(target)
                   + "&q=" + Uri.EscapeDataString(text);
 
         using var resp = await this.http.GetAsync(url, ct);
@@ -109,7 +114,7 @@ public sealed class Translator : IDisposable
     }
 
     // DeepL API Free : nécessite une clé gratuite (https://www.deepl.com/pro-api).
-    private async Task<TranslationResult?> DeepLAsync(string text, Configuration cfg, CancellationToken ct)
+    private async Task<TranslationResult?> DeepLAsync(string text, string target, Configuration cfg, CancellationToken ct)
     {
         if (string.IsNullOrWhiteSpace(cfg.DeepLApiKey))
             return null;
@@ -123,7 +128,7 @@ public sealed class Translator : IDisposable
         req.Content = new FormUrlEncodedContent(new[]
         {
             new KeyValuePair<string, string>("text", text),
-            new KeyValuePair<string, string>("target_lang", DeepLTarget(cfg.TargetLanguage)),
+            new KeyValuePair<string, string>("target_lang", DeepLTarget(target)),
         });
 
         using var resp = await this.http.SendAsync(req, ct);

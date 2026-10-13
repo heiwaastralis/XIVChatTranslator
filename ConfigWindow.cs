@@ -33,7 +33,7 @@ public sealed class ConfigWindow : Window
     };
 
     // Codes de langue cibles (Google / DeepL). Les libellés viennent de Loc ("lang_xx").
-    private static readonly string[] LanguageCodes =
+    internal static readonly string[] LanguageCodes =
         { "fr", "en", "de", "ja", "es", "it", "pt", "nl", "pl", "ru", "tr", "ko", "zh-CN", "ar" };
 
     // Réglage de la langue de l'interface : "auto" ou un code supporté.
@@ -75,7 +75,7 @@ public sealed class ConfigWindow : Window
         this.SizeCondition = ImGuiCond.FirstUseEver;
     }
 
-    private static string LanguageLabel(string code)
+    internal static string LanguageLabel(string code)
         => Loc.T("lang_" + (code == "zh-CN" ? "zh" : code));
 
     public override void Draw()

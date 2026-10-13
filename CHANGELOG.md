@@ -12,6 +12,7 @@ To release a new version: change `<Version>` in `FrenchChatTranslator.csproj`, a
 ### Added
 - Info icon (circled "i") next to "Service" in the settings. Hovering it compares Google (free, less accurate) and DeepL (more accurate, free up to 500,000 characters per month); clicking it opens a guide on creating a DeepL API key.
 - Clickable link to the DeepL API key guide under the DeepL key field.
+- `/htranslate` command: a window to translate your own messages. Choose the target language, the source language is detected automatically, and a button copies the translation to the clipboard. The window is localized like the rest of the plugin and nothing is sent to the game automatically.
 - Plugin icon (`images/icon.png`), shown in the Dalamud plugin installer.
 - Custom plugin repository (`repo.json`) so the plugin can be installed from the Dalamud installer.
 - Support for DeepL paid (Pro) API keys in addition to free keys. The right DeepL server is chosen automatically from the key.

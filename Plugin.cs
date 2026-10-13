@@ -23,6 +23,7 @@ namespace FrenchChatTranslator;
 public sealed class Plugin : IDalamudPlugin
 {
     private const string CommandName = "/frtrad";
+    private const string TranslateCommandName = "/htranslate";
 
     [PluginService] internal static IDalamudPluginInterface PluginInterface { get; private set; } = null!;
     [PluginService] internal static ICommandManager CommandManager { get; private set; } = null!;
@@ -43,6 +44,7 @@ public sealed class Plugin : IDalamudPlugin
     private readonly Translator translator = new();
     private readonly WindowSystem windows = new("FrenchChatTranslator");
     private readonly ConfigWindow configWindow;
+    private readonly TranslatorWindow translatorWindow;
     private readonly CancellationTokenSource cts = new();
 
     private readonly Channel<Pending> queue = Channel.CreateUnbounded<Pending>(
@@ -74,6 +76,9 @@ public sealed class Plugin : IDalamudPlugin
 
         this.configWindow = new ConfigWindow(this.config);
         this.windows.AddWindow(this.configWindow);
+
+        this.translatorWindow = new TranslatorWindow(this.config, this.translator, this.cts.Token);
+        this.windows.AddWindow(this.translatorWindow);
 
         // Langue de l'interface : celle du jeu par défaut (anglais si elle n'est pas gérée).
         Loc.Apply(this.config.UiLanguage, ClientState.ClientLanguage);
@@ -145,6 +150,12 @@ public sealed class Plugin : IDalamudPlugin
         CommandManager.AddHandler(CommandName, new CommandInfo(this.OnCommand)
         {
             HelpMessage = Loc.T("command_help"),
+        });
+
+        CommandManager.RemoveHandler(TranslateCommandName);
+        CommandManager.AddHandler(TranslateCommandName, new CommandInfo((_, _) => this.translatorWindow.Toggle())
+        {
+            HelpMessage = Loc.T("htranslate_help"),
         });
     }
 
@@ -393,6 +404,7 @@ public sealed class Plugin : IDalamudPlugin
         PluginInterface.UiBuilder.OpenConfigUi -= this.configWindow.Toggle;
         PluginInterface.UiBuilder.OpenMainUi -= this.configWindow.Toggle;
         CommandManager.RemoveHandler(CommandName);
+        CommandManager.RemoveHandler(TranslateCommandName);
 
         this.cts.Cancel();
         this.queue.Writer.TryComplete();
