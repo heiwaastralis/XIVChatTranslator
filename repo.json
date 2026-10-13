@@ -1,0 +1,30 @@
+[
+  {
+    "Author": "Heiwa",
+    "Name": "Chat Translator",
+    "InternalName": "FrenchChatTranslator",
+    "AssemblyVersion": "1.0.1.0",
+    "Description": "Detects the language of every chat message and replaces it with a translation in the language you choose (French, English, German, Japanese and more). Click the language tag to see the original message. The settings window follows your game language (English, French, German or Japanese). Message text is sent to Google Translate or DeepL for translation. Use /frtrad to open the settings.",
+    "ApplicableVersion": "any",
+    "RepoUrl": "https://github.com/heiwaastralis/XIVChatTranslator",
+    "Tags": [
+      "chat",
+      "translation",
+      "translator",
+      "language"
+    ],
+    "DalamudApiLevel": 15,
+    "LoadPriority": 0,
+    "Punchline": "Automatically translates chat messages into the language of your choice.",
+    "Changelog": "See https://github.com/heiwaastralis/XIVChatTranslator/blob/main/CHANGELOG.md",
+    "AcceptsFeedback": true,
+    "IconUrl": "https://raw.githubusercontent.com/heiwaastralis/XIVChatTranslator/main/images/icon.png",
+    "IsHide": false,
+    "IsTestingExclusive": false,
+    "DownloadCount": 0,
+    "LastUpdate": 1791916280,
+    "DownloadLinkInstall": "https://github.com/heiwaastralis/XIVChatTranslator/releases/download/v1.0.1/latest.zip",
+    "DownloadLinkTesting": "https://github.com/heiwaastralis/XIVChatTranslator/releases/download/v1.0.1/latest.zip",
+    "DownloadLinkUpdate": "https://github.com/heiwaastralis/XIVChatTranslator/releases/download/v1.0.1/latest.zip"
+  }
+]

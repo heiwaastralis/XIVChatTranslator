@@ -35,6 +35,17 @@ The settings window, the command help and the plugin messages follow your **game
 
 The text of the messages in the channels you enabled is sent to **Google Translate** (default) or **DeepL** (if selected) in order to be detected and translated. Disable the channels you do not want to send, and do not use the plugin if you are not comfortable with this. Your DeepL API key, if any, is stored only in your local plugin configuration.
 
+## Install (custom repository)
+
+1. In game, type `/xlsettings` and open the **Experimental** tab.
+2. In **Custom Plugin Repositories**, paste this URL, click the **+** button, then **Save and Close**:
+
+   ```
+   https://raw.githubusercontent.com/heiwaastralis/XIVChatTranslator/main/repo.json
+   ```
+
+3. Type `/xlplugins`, search for **Chat Translator** in the plugin installer and click **Install**.
+
 ## Usage
 
 - `/frtrad`: open the settings window.
