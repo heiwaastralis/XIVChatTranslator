@@ -55,30 +55,6 @@ The text of the messages in the channels you enabled is sent to **Google Transla
 
 Note: for incoming tells, a message that has to be translated is held and re-displayed, so the usual tell sound or flash may not trigger for translated tells. Uncheck "Incoming tells" or disable "Replace the original message" if this bothers you.
 
-## Build
-
-Requirements: the **.NET 10 SDK** and XIVLauncher with Dalamud installed (launch the game once so that `%AppData%\XIVLauncher\addon\Hooks\dev` exists).
-
-```
-dotnet build -c Release
-```
-
-The DLL is generated in `bin\Release\` (usually in a `net10.0-windows` subfolder).
-
-> **API level**: the `.csproj` uses `Dalamud.NET.Sdk/15.0.0`. If your Dalamud uses another API level, change this number to match the official [SamplePlugin](https://github.com/goatcorp/SamplePlugin). The chat event signature (`IHandleableChatMessage`) comes from the current Dalamud API and may change in future versions.
-
-## Install as a dev plugin
-
-1. In game, type `/xlsettings` and open the **Experimental** tab.
-2. In **Dev Plugin Locations**, add the full path of `ChatTranslator.dll` (the `ChatTranslator.json` manifest must be next to it), then **Save and Close**.
-3. Type `/xlplugins`, open **Dev Tools → Installed Dev Plugins** and enable **Chat Translator**.
-
-After rebuilding, disable and re-enable the plugin in **Installed Dev Plugins** to load the new DLL.
-
-## Versioning and changelog
-
-The version number is defined in one place: `<Version>` in `ChatTranslator.csproj` (currently `1.0.1.0`). It is shown in the settings window. To release a new version, change that number, add a section to [`CHANGELOG.md`](CHANGELOG.md) and rebuild. The project follows [Semantic Versioning](https://semver.org/).
-
 ## License
 
 [MIT](LICENSE) © 2026 Heiwa
