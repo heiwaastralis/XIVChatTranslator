@@ -14,6 +14,9 @@
       "language"
     ],
     "DalamudApiLevel": 15,
+    "LoadRequiredState": 0,
+    "LoadSync": false,
+    "CanUnloadAsync": false,
     "LoadPriority": 0,
     "Punchline": "Automatically translates chat messages into the language of your choice.",
     "Changelog": "See https://github.com/heiwaastralis/XIVChatTranslator/blob/main/CHANGELOG.md",
