@@ -13,7 +13,7 @@
       "translator",
       "language"
     ],
-    "DalamudApiLevel": 15,
+    "DalamudApiLevel": 14,
     "LoadRequiredState": 0,
     "LoadSync": false,
     "CanUnloadAsync": false,
