@@ -210,7 +210,7 @@ public sealed class TranslatorWindow : Window
                 }
 
                 this.failed = false;
-                this.output = result.Text;
+                this.output = TextSanitizer.ToLatin(result.Text);
                 this.detected = result.SourceLang;
             }
         });

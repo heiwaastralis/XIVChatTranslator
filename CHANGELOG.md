@@ -7,6 +7,11 @@ To release a new version: change `<Version>` in `ChatTranslator.csproj`, add a n
 
 ## [Unreleased]
 
+## [1.0.2] - 2026-10-17
+
+### Changed
+- The `/htranslator` window now converts accented and special letters to their basic Latin equivalent (e.g. `ł` becomes `l`, `é` becomes `e`, `ß` becomes `ss`), because the game chat does not accept them. Japanese text is kept as is, and typographic quotes and dashes become plain ASCII.
+
 ## [1.0.1-beta] - 2026-10-13
 
 ### Added
