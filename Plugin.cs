@@ -57,6 +57,9 @@ public sealed class Plugin : IDalamudPlugin
     private readonly ConcurrentDictionary<string, (int Count, long Ticks)> expected = new();
     private const long ExpectedTtlMs = 15_000;
 
+    // Durée maximale pendant laquelle le jeu attend une traduction avant de passer au chemin lent.
+    private const int MaxWaitMs = 600;
+
     // Liens cliquables sur le tag [EN→FR] : un lien par « slot », réutilisés en boucle
     // (les 256 derniers messages traduits gardent leur original consultable).
     private const int LinkSlots = 256;
@@ -224,12 +227,33 @@ public sealed class Plugin : IDalamudPlugin
             return;
         }
 
-        // Chemin lent : on retient le message, on traduit, puis on affiche la traduction (ou l'original)
-        // à sa place. La file garantit que l'ordre des messages est conservé.
-        var originalCopy = new SeString(new List<Payload>(chatMessage.Message.Payloads));
         var task = needsTranslation
             ? this.translator.TranslateAsync(text, this.config, this.cts.Token)
             : null;
+
+        // Attente courte : si la traduction arrive vite, on remplace le texte sur place. Le message n'est alors
+        // jamais retenu ni réémis, ce qui permet aux bulles de chat natives du jeu d'afficher la traduction.
+        if (task != null && !hasPending && this.config.WaitForTranslation)
+        {
+            try
+            {
+                if (task.Wait(MaxWaitMs))
+                {
+                    var quick = this.BuildDisplay(task.Result, text);
+                    if (quick != null)
+                        chatMessage.Message = quick;
+                    return;
+                }
+            }
+            catch (Exception)
+            {
+                return; // échec ou annulation : le message passe tel quel
+            }
+        }
+
+        // Chemin lent : on retient le message, on traduit, puis on affiche la traduction (ou l'original)
+        // à sa place. La file garantit que l'ordre des messages est conservé.
+        var originalCopy = new SeString(new List<Payload>(chatMessage.Message.Payloads));
 
         chatMessage.PreventOriginal();
         Interlocked.Increment(ref this.pendingCount);

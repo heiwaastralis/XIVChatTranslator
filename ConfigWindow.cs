@@ -117,6 +117,16 @@ public sealed class ConfigWindow : Window
             this.config.Save();
         }
 
+        if (this.config.OverwriteOriginal)
+        {
+            var wait = this.config.WaitForTranslation;
+            if (ImGui.Checkbox(Loc.T("wait_translation"), ref wait))
+            {
+                this.config.WaitForTranslation = wait;
+                this.config.Save();
+            }
+        }
+
         var showTag = this.config.ShowTag;
         if (ImGui.Checkbox(Loc.T("show_tag"), ref showTag))
         {

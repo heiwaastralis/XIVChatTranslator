@@ -35,6 +35,12 @@ public sealed class Configuration : IPluginConfiguration
     /// </summary>
     public bool OverwriteOriginal { get; set; } = true;
 
+    /// <summary>
+    /// Attend brièvement (max ~0,6 s) la traduction avant d'afficher un message, pour pouvoir le remplacer sur place.
+    /// C'est ce qui permet aux bulles de chat natives du jeu de montrer la traduction.
+    /// </summary>
+    public bool WaitForTranslation { get; set; } = true;
+
     /// <summary>Préfixe les messages traduits de [EN→FR] (langue détectée → langue cible).</summary>
     public bool ShowTag { get; set; } = true;
 
