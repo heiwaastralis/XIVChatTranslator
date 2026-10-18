@@ -7,10 +7,12 @@ To release a new version: change `<Version>` in `HeiwaChatTranslator.csproj`, ad
 
 ## [Unreleased]
 
-## [1.0.2] - 2026-10-17
+## [1.0.3.1] - 2026-10-18
 
 ### Fixed
 - Native game chat bubbles could show unrelated messages (such as combat information) instead of the translated message. Messages are now translated in place when the translation arrives within 0.6 s, so the bubble gets the translated text. New option "Wait briefly for the translation" (on by default) in the settings.
+
+## [1.0.2] - 2026-10-17
 
 ### Changed
 - The plugin's internal name is now `HeiwaChatTranslator` (the name `ChatTranslator` made the plugin invisible in the Dalamud plugin installer). The displayed name is still "Chat Translator". The settings are reset on first load.
