@@ -3,13 +3,14 @@
 All notable changes to this plugin are documented in this file.
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project uses [Semantic Versioning](https://semver.org/).
 
-To release a new version: change `<Version>` in `ChatTranslator.csproj`, add a new section at the top of this file, then rebuild.
+To release a new version: change `<Version>` in `HeiwaChatTranslator.csproj`, add a new section at the top of this file, then rebuild.
 
 ## [Unreleased]
 
 ## [1.0.2] - 2026-10-17
 
 ### Changed
+- The plugin's internal name is now `HeiwaChatTranslator` (the name `ChatTranslator` made the plugin invisible in the Dalamud plugin installer). The displayed name is still "Chat Translator". The settings are reset on first load.
 - The `/htranslator` window now converts accented and special letters to their basic Latin equivalent (e.g. `ł` becomes `l`, `é` becomes `e`, `ß` becomes `ss`), because the game chat does not accept them. Japanese text is kept as is, and typographic quotes and dashes become plain ASCII.
 
 ## [1.0.1-beta] - 2026-10-13
